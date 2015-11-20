@@ -5,7 +5,7 @@ RUN apt-get update && \
   && rm -rf /var/lib/apt/lists/*
 
 ENV JULIA_VER v0.4.1
-ENV JULIA_PKG_DIR /root/.julia/${JULIA_VER}
+ENV JULIA_PKG_DIR /root/.julia/v0.4
 
 RUN julia -e 'Pkg.update(); Pkg.add("Escher")'
 RUN julia -e 'Pkg.add("Compose"); Pkg.add("Gadfly")'
@@ -14,4 +14,4 @@ RUN ln -s ${JULIA_PKG_DIR}/Escher/bin/escher /usr/local/bin
 
 EXPOSE 5555
 WORKDIR ${JULIA_PKG_DIR}/Escher/examples
-RUN .julia/v0.4/Escher/bin/escher --serve
+RUN escher --serve

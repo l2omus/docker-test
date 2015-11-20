@@ -14,4 +14,4 @@ RUN ln -s ${JULIA_PKG_DIR}/Escher/bin/escher /usr/local/bin
 
 EXPOSE 5555
 WORKDIR ${JULIA_PKG_DIR}/Escher/examples
-RUN ${JULIA_PKG_DIR}/Escher/bin/escher --serve
+RUN .julia/v0.4/Escher/bin/escher --serve

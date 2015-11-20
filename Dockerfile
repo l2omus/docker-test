@@ -1,10 +1,10 @@
-FROM julia:0.4.1
+FROM julia:0.4
 MAINTAINER "Romain Pauli" gromainpauligmail.com
 RUN apt-get update && \
   apt-get install -y curl cmake gettext gfortran pkg-config libgnutls28-dev \
   && rm -rf /var/lib/apt/lists/*
 
-ENV JULIA_VER v0.4.1
+ENV JULIA_VER v0.4
 ENV JULIA_PKG_DIR /root/.julia/v0.4
 
 RUN julia -e 'Pkg.update(); Pkg.add("Escher")'

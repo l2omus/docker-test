@@ -1,11 +1,9 @@
 FROM julia:0.4.1
 MAINTAINER "Romain Pauli" gromainpauligmail.com
 RUN apt-get update && \
-    apt-get install -y curl cmake gettext gfortran pkg-config libgnutls28-dev \
+    apt-get install -y curl cmake gettext gfortran pkg-config libgnutls28-dev sqlite3 \
     && rm -rf /var/lib/apt/lists/*
     
-RUN apt-get update && apt-get install sqlite3
-
 ENV JULIA_VER v0.4
 ENV JULIA_PKG_DIR /root/.julia/${JULIA_VER}
 

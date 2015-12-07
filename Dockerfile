@@ -12,10 +12,12 @@ RUN julia -e 'Pkg.add("Compose"); Pkg.add("Gadfly")'
 RUN julia -e 'Pkg.add("SQLite"); Pkg.add("Roots")'
 # RUN julia -e 'Pkg.checkout("Lazy"); Pkg.checkout("Patchwork"); Pkg.checkout("Mux")'
 RUN ln -s ${JULIA_PKG_DIR}/Escher/bin/escher /usr/local/bin
-RUN mkdir usr/analytics
-VOLUME ["/usr/analytics"]
+RUN mkdir usr/
+
+WORKDIR usr
 RUN git clone http://github.com/l2omus/vinum-analytics.git
+VOLUME ["/usr/vinum-analytics"]
 
 EXPOSE 5555
-WORKDIR usr/analytics
+WORKDIR vinum-analytics
 CMD escher --serve

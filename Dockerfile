@@ -16,6 +16,6 @@ RUN ln -s ${JULIA_PKG_DIR}/Escher/bin/escher /usr/local/bin
 RUN git clone http://github.com/l2omus/vinum-analytics.git usr/vinum-analytics
 VOLUME ["/usr/vinum-analytics"]
 
-EXPOSE 5555
+EXPOSE 8080
 WORKDIR usr/vinum-analytics
-CMD escher --serve
+CMD escher --port 8080 --serve

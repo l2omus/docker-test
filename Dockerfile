@@ -10,7 +10,10 @@ ENV JULIA_PKG_DIR /root/.julia/${JULIA_VER}
 RUN julia -e 'Pkg.update(); Pkg.add("Escher")'
 RUN julia -e 'Pkg.add("Compose"); Pkg.add("Gadfly")'
 RUN julia -e 'Pkg.add("SQLite"); Pkg.add("Roots")'
+RUN julia -e 'Pkg.update()'
 RUN julia -e 'Pkg.build()'
+
+RUN julia -e 'using Escher, Compose, Gadfly, SQLite, Roots'
 # RUN julia -e 'Pkg.checkout("Lazy"); Pkg.checkout("Patchwork"); Pkg.checkout("Mux")'
 RUN ln -s ${JULIA_PKG_DIR}/Escher/bin/escher /usr/local/bin
 

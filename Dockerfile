@@ -1,4 +1,4 @@
-FROM julia:0.4.1
+FROM julia:0.4.2
 MAINTAINER "Romain Pauli" gromainpauligmail.com
 RUN apt-get update && \
     apt-get install -y curl cmake gettext gfortran pkg-config libgnutls28-dev sqlite3 \

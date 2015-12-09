@@ -10,6 +10,8 @@ ENV JULIA_PKG_DIR /root/.julia/${JULIA_VER}
 RUN julia -e 'Pkg.update(); Pkg.add("Escher")'
 RUN julia -e 'Pkg.add("Compose"); Pkg.add("Gadfly")'
 RUN julia -e 'Pkg.add("SQLite"); Pkg.add("Roots")'
+RUN julia -e 'Pkg.checkout("MacroTools")'
+
 #RUN julia -e 'Pkg.update()'
 #RUN julia -e 'Pkg.build()'
 
